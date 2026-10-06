@@ -19,10 +19,10 @@
 - [x] Colliders por manifesto; zero BoxGeometry de cenário
 - Gates: build OK + eslint 0 erros + vitest 48/48 + auditoria traverse (0 Box de cenário) + Playwright 0 erros + 5 screenshots — veredito do monitor: **concluída** (reports/stage-V3-eval.md, reavaliação pós-desbloqueio 2026-10-06)
 
-## Fase V4 — Inimigos skinned
-- [ ] EnemyVisual com mixer/blend por velocidade, mira no spine
-- [ ] Hitboxes por bone, arma no bone, clips de morte
-- Gates: build + lint + vitest + Playwright estados de animação
+## Fase V4 — Inimigos skinned ✅
+- [x] EnemyVisual com mixer/blend por velocidade, mira no spine
+- [x] Hitboxes por bone, arma no bone, clips de morte
+- Gates: build OK (exit 0) + eslint 0 erros + vitest 52/52 (EnemyVisual.test 4/4) + Playwright 0 erros de console, 16 SkinnedMesh, 48 hitboxes (6×8), ações walk/idle por velocidade com patrol avançando — status em `docs/planning/stages/stage-V4-status.md`; evidências em `/tmp/browser/v4-phase/`
 
 ## Fase V5 — Armas e mãos FPS
 - [ ] ViewmodelV2 glTF com braços, câmera de viewmodel
