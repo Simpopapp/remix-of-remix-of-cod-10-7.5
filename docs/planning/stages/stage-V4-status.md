@@ -41,9 +41,11 @@ Date: 2026-10-06
   `soldier.glb` servido e carregado; inspeção via hooks `__obScene`/
   `__obDirector` → 16 SkinnedMesh na cena, 48 hitboxes por bone (6 × 8
   inimigos), 8/8 visuais prontos, ação de animação viva (walk/idle por
-  velocidade) e posições de patrol avançando entre duas amostras
-  (script/evidência: `/tmp/browser/v4-phase/check_anim5.py`; screenshots
-  de carga em `/tmp/browser/v4-phase/`).
+  velocidade) e posições de patrol avançando entre duas amostras.
+  Evidência dentro do projeto (monitor pode ler): script + saída em
+  `docs/planning/evidence/stage-V4/check_anim5.py` (saída esperada descrita
+  acima) e screenshots `s0_after_click.png`, `a0.png`, `a2.png`,
+  `a4_look.png` no mesmo diretório; originais em `/tmp/browser/v4-phase/`.
 
 ## Notas para o monitor
 - ROADMAP canónico da v2 é `.opencode/roadmap-proj.md` (Fase V4 marcada);
