@@ -195,3 +195,42 @@ Pontos de atenção (não bloqueantes):
 - Não re-executado pelo monitor: Playwright + screenshots (prova repousa no
   registo do builder + verificação estrutural do código aqui; precedente dos
   evals V2/V3)
+
+## Reconfirmação independente (2026-10-06, segundo turno do monitor)
+
+**Contexto:** novo pedido de avaliação da Stage V4 chegou com o relatório
+acima já existente e datado de hoje. O monitor revalidou tudo de forma
+independente neste turno — o veredito **concluída** permanece, sem nenhuma
+alteração no conteúdo acima.
+
+**Verificação executada neste turno (só leitura, sem alterar código):**
+- `EnemyVisual.ts` lido na íntegra (498 linhas): mixer Idle/Walk/Run
+  (`:243-264`), shoot aditivo (`:308-344`), 2 mortes LoopOnce +
+  clampWhenFinished (`:347-409`), mira Spine2/Neck pós-mixer (`:434-445`),
+  6 hitboxes `userData { enemyId, zone }` (`:286-295`), arma na mão direita
+  com muzzle real (`:275-282`), `frustumCulled = false` (`:235`), fallback
+  P1 com `console.warn` (`:301-304`).
+- `Enemy.ts`: integração intacta (`:101-106` hitboxes async + `onHitMeshes`,
+  `:144` playDeath, `:490` playShoot, `:495` muzzle fallback,
+  `:587-594` delegação do update, `:603` dispose).
+- Contrato ponta a ponta reauditado: `Director.ts:49-51/:119-120`
+  (repasses vivos) → `WeaponSystem.ts:105/:246/:251-291` (lê `enemyId`,
+  compatível com `targetId` legado).
+- `manifest.json`: entrada `soldier` P1 MIT; `soldier.glb` 2.160.468 bytes
+  no disco; `CREDITS.md:17` MIT; `report.json` 51,7 MB / 120, primeiro
+  frame 3,02 MB / 40.
+- `check_anim5.py` lido: inspeção via `__obScene`/`__obDirector`
+  (SkinnedMesh, hitboxes, 2 amostras de patrol, captura de console errors).
+- Imagens reinspecionadas (`a0.png`, `a4_look.png`): intro com letterbox
+  "OPERAÇÃO: BLACKOUT" — nenhum inimigo visível; ressalva de prova do
+  relatório acima confirmada e mantida.
+- Gates re-executados neste turno: `bunx vitest run` **52/52** (7 ficheiros),
+  `bun run build` OK, `bunx eslint src scripts` **0 erros** (6 warnings
+  pré-existentes em `src/components/ui/*`).
+- Roadmap `.opencode/roadmap-proj.md:22-25` Fase V4 ✅; linha 25 ainda cita
+  `/tmp/browser/v4-phase/` enquanto o canónico é
+  `docs/planning/evidence/stage-V4/` — desatualização menor já registrada
+  acima, sem impacto no veredito.
+
+**Discrepâncias novas:** nenhuma. Status, roadmap, código e evidências
+convergem. Fase V5 autorizada a iniciar.
